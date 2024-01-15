@@ -27,7 +27,7 @@
   // 1. Filter the list of inventors for those who were born in the 1500's
   const fifteen = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year < 1600));
   console.table(fifteen);
-  
+
     //below is the code before it was turned into one line of code above in line 28-29
   //const fifteen = inventors.filter(function(inventor) {
   // if(inventor.year >= 1500 && inventor.year < 1600) {
@@ -35,9 +35,23 @@
   //});
 
   // Array.prototype.map()
-  // 2. Give us an array of the inventors first and last names
+  // 2. Give us an array of the inventors first and last names //below concatenate was used to put in a space - if you do it wrong you get NaN NaN Batman!
+const fullName = inventors.map(inventor => inventor.first + ' ' + inventor.last);
+// or
+//const fullName = inventors.map(inventor => '${inventor.first} ${inventor.last}');
+console.log(fullName); 
+
   // Array.prototype.sort()
   // 3. Sort the inventors by birthdate, oldest to youngest
+const ordered = inventors.sort(function(a,b) {
+    if(a.year > b.year) {
+        return 1;
+    } else {
+        return -1;
+    }
+});
+console.table(ordered);
+
   // Array.prototype.reduce()
   // 4. How many years did all the inventors live all together?
   // 5. Sort the inventors by years lived
