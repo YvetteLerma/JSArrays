@@ -1,4 +1,4 @@
- // Get your shorts on - this is an array workout!
+  // Get your shorts on - this is an array workout!
  // ## Array Cardio Day 1
  // Some data we can work with
  const inventors = [
@@ -77,8 +77,31 @@ const oldest = inventors.sort(function(a, b) {
 console.table(oldest);
   // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
   // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+// const category = document.querySelector('.mw-category');
+// const links = Array.from(category.querySelectorAll('a'));
+// const de = links
+    // .map(link => link.textContent)
+    // .filter(streetName => streetName.includes('de'));
+// 
   // 7. sort Exercise
   // Sort the people alphabetically by last name
+const alpha = people.sort((lastOne, nextOne) => {
+    const [aLast, aFirst] = lastOne.split(', ');
+    const [bLast, bFirst] = nextOne.split(', ');
+    return aLast > bLast ? 1 : -1;
+});
+    console.log(alpha);
   // 8. Reduce Exercise
   // Sum up the instances of each of these
   const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+  const transportation = data.reduce(function(obj,item){
+    if(!obj[item]) {//this is the entry for the zero item
+        obj[item] = 0;
+    }
+    obj[item]++; //this is where the item increments
+    return obj;
+  }, {}); //blank obj --> {}
+
+  console.log(transportation);
+
+  //start with a blank obj, everytime we loop over one we see if there is a zero to work with at all, if not you need to make an entry for that, and increment it.
